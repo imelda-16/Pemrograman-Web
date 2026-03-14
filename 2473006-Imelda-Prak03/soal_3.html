@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Tambah Data User</title>
+    <style>
+        body {
+            font-family: "Times New Roman", Times, serif;
+        }
+        .form-container {
+            border: 1px solid black;
+            width: 380px; 
+            padding: 7px 7px; 
+            margin: 20px auto;
+            box-shadow: 3px 3px 8px rgba(0,0,0,0.1);
+        }
+        h2 {
+            text-align: left;  
+            margin-bottom: 10px;
+            font-size: 24px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        td {
+            padding: 4px 2px; 
+            font-size: 16px;
+        }
+        .separator {
+            width: 5px;
+            text-align: center;
+        }
+        input {
+            font-size: 14px;
+            padding: 2px;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        input[type="number"], input[type="date"], input[type="color"] {
+            width: auto; 
+        }
+        .btn-container {
+            text-align: center;
+            padding-top: 10px;
+        }
+        input[type="submit"] {
+            width: auto;
+            padding: 2px 15px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <h2>Form Tambah Data User</h2>
+    
+    <form action="proses.html" method="post">
+        <table>
+            <tr>
+                <td width="110">Name</td>
+                <td class="separator">:</td>
+                <td>
+                    <input type="text" name="name" required oninvalid="this.setCustomValidity('Name is required!!!')" oninput="this.setCustomValidity('')">
+                </td>
+            </tr>
+            <tr>
+                <td>Address</td>
+                <td class="separator">:</td>
+                <td>
+                    <input type="text" name="address" required oninvalid="this.setCustomValidity('Address is required!!!')" oninput="this.setCustomValidity('')">
+                </td>
+            </tr>
+            <tr>
+                <td>Email</td>
+                <td class="separator">:</td>
+                <td>
+                    <input type="email" name="email" required>
+                </td>
+            </tr>
+            <tr>
+                <td>Home Page</td>
+                <td class="separator">:</td>
+                <td><input type="url" name="homepage"></td>
+            </tr>
+            <tr>
+                <td>Birthday</td>
+                <td class="separator">:</td>
+                <td><input type="date" name="birthday"></td>
+            </tr>
+            <tr>
+                <td>Favorit Color</td>
+                <td class="separator">:</td>
+                <td><input type="color" name="color" style="width: 60px; height: 30px;"></td>
+            </tr>
+            <tr>
+                <td>IPK</td>
+                <td class="separator">:</td>
+                <td>
+                    <input type="number" name="ipk" value="0" min="0" max="4" step="0.1" style="width: 60px;">
+                </td>
+            </tr>
+            <tr>
+                <td>Phone Number</td>
+                <td class="separator">:</td>
+                <td>
+                    <input type="tel" name="phone" pattern="[0-9]{3}-[0-9]{7,10}" placeholder="###-#######">
+                </td>
+            </tr>
+        </table>
+
+        <div class="btn-container">
+            <input type="submit" value="Add">
+        </div>
+    </form>
+</div>
+
+</body>
+</html>

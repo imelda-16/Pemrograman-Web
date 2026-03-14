@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Form Personal Data</title>
+    <style>
+
+        table.clean-table {
+            border: 1px solid black;
+            border-collapse: collapse; 
+            font-family: "Times New Roman", Times, serif;
+            font-size: 18px;
+            width: 500px;
+            min-height: 500px;
+        } 
+
+        .clean-table td {
+            border: none;
+            vertical-align: top;
+            font-size: 18px;
+            padding: 5px 5px;
+        }
+
+        .header-bg {
+            background-color: gray; 
+            color: white;
+            border-bottom: 1px solid black !important;
+        }
+
+        .hobi-table td {
+            border: none !important;
+            padding: 2px 5px;
+        }
+
+
+        .submit-section {
+            border-top: 1px solid black !important; 
+        }
+    </style>
+</head>
+<body>
+
+    <table class="clean-table" align="center" cellspacing="0">
+        <form action="proses.html" method="get">
+            <tr>
+                <th colspan="2" class="header-bg">
+                    Personal Data
+                </th>
+            </tr>
+
+            <tr>
+                <td width="150">Nama</td>
+                <td>
+                    <input type="text" name="nama" style="width: 250px;">
+                </td>
+            </tr>
+
+            <tr>
+                <td>Alamat</td>
+                <td>
+                    <textarea name="alamat" rows="4" style="width: 250px;"></textarea>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Jenis Kelamin</td>
+                <td>
+                    <input type="radio" id="lk" name="jk" value="laki-laki">
+                    <label for="lk">laki-laki</label><br>
+                    <input type="radio" id="pr" name="jk" value="perempuan">
+                    <label for="pr">perempuan</label>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Tanggal Lahir</td>
+                <td>
+                    <select name="tgl"><option>1</option></select> -
+                    <select name="bln"><option>Januari</option></select> -
+                    <select name="thn"><option>1980</option></select>
+                </td>
+            </tr>
+
+            <tr>
+                <td>Jurusan</td>
+                <td>
+                    <select name="jurusan" multiple="multiple" size="3" style="width: 150px;">
+                        <option>teknik informatika</option>
+                        <option>sistem informasi</option>
+                        <option>elektro</option>
+                        <option>sipil</option>
+                    </select>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2">
+                    <fieldset>
+                        <legend>Hobi</legend>
+                        <table class="hobi-table" width="100%">
+                            <tr>
+                                <td><input type="checkbox" name="hobi"> Membaca</td>
+                                <td><input type="checkbox" name="hobi"> Voli</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="hobi"> Menulis</td>
+                                <td><input type="checkbox" name="hobi"> Badminton</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="hobi"> Catur</td>
+                                <td><input type="checkbox" name="hobi"> Golf</td>
+                            </tr>
+                        </table>
+                    </fieldset>
+                </td>
+            </tr>
+
+            <tr>
+                <td colspan="2" align="right" class="submit-section">
+                    <input type="submit" value="Submit">
+                </td>
+            </tr>
+        </form>
+    </table>
+
+</body>
+</html>
