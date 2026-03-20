@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2473006-Imelda</title>
+    <style>
+        body {
+            background-color: #a00000;
+            font-family: Georgia, serif;
+            color: white;
+            padding: 50px;
+        }
+
+        .rounded-box {
+            width: 280px;
+        }
+
+        .box-t  { background: url("img/box_t.gif") top repeat-x; }
+        .box-b  { background: url("img/box_b.gif") bottom repeat-x; }
+        .box-l  { background: url("img/box_l.gif") left repeat-y; }
+        .box-r  { background: url("img/box_r.gif") right repeat-y; }
+
+        .box-tl { background: url("img/box_tl.gif") top left no-repeat; }
+        .box-tr { background: url("img/box_tr.gif") top right no-repeat; }
+        .box-bl { background: url("img/box_bl.gif") bottom left no-repeat; }
+        .box-br { background: url("img/box_br.gif") bottom right no-repeat; }
+
+        .content {
+            background-color: #8B0000; 
+            padding: 15px 20px;
+            line-height: 1.6;
+            border: 1px solid white;
+            border-radius: 15px;
+        }
+
+        .date {
+            font-size: 18px;
+            font-weight: bold;
+            margin-bottom: 10px;
+            display: block;
+        }
+
+        .more-link {
+            color: orange;
+            text-decoration: none;
+            float: right;
+            font-weight: bold;
+            margin-right: 10px;
+        }
+
+        .more-link:hover {
+            color: green;
+            text-decoration: underline;
+        }
+
+        .clearfix::after {
+            content: "";
+            display: table;
+            clear: both;
+        }
+    </style>
+</head>
+<body>
+
+<div class="rounded-box">
+    <div class="box-t">
+        <div class="box-b">
+            <div class="box-l">
+                <div class="box-r">
+                    <div class="box-tl">
+                        <div class="box-tr">
+                            <div class="box-bl">
+                                <div class="box-br">
+                                    
+                                    <div class="content clearfix">
+                                        <span class="date">12.02.2011</span>
+                                        <p>
+                                            Satu per satu para pesaing Manchester United mulai 
+                                            menunjukkan tanda-tanda "menyerah". Kini tinggal..
+                                        </p>
+                                        <a href="#" class="more-link">more</a>
+                                    </div>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
