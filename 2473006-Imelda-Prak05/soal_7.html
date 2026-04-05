@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+
+        .main-table {
+            width: 620px; 
+            border-collapse: collapse;
+            background-color: white;
+            margin: auto;
+            border: 1px solid #ccc;
+        }
+
+        .logo-area { width: 120px; text-align: center; border: 1px solid #ccc; }
+        .banner-yellow { 
+            width: 340px; 
+            background-color: #ffff00; 
+            padding: 10px; 
+            text-align: center; 
+            font-family: 'Times New Roman';
+            font-size: 28px;
+            border: 1px solid #ccc;
+            line-height: 1.1;
+        }
+        .banner-lion { width: 160px; border: 1px solid #ccc; padding: 0; }
+        .banner-lion img { display: block; width: 100%; height: auto; }
+
+        .sidebar {
+            width: 120px;
+            vertical-align: top;
+            background: url('bg_sea.png') repeat-y;
+            background-size: 120px auto;
+            padding-bottom: 100px; 
+        }
+        .nav-list {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            text-align: center;
+        }
+        .nav-list li a {
+            color: white;
+            text-decoration: underline;
+            font-family: 'Times New Roman';
+            font-size: 16px;
+            line-height: 1;
+        }
+
+        .content-area {
+            width: 500px; 
+            vertical-align: top;
+            padding: 0; 
+            color: #4169E1;
+        }
+        
+        .title-blue {
+            text-align: center;
+            color: #4169E1;
+            font-size: 30px;
+            font-family: 'Times New Roman'; 
+            font-weight: bold; 
+            margin-top: 5px;
+            margin-bottom: 10px;
+        }
+        .pic-wrapper {
+            float: right;
+            width: 200px;
+            margin-left: 10px;
+            margin-bottom: 5px;
+            margin-right: 5px;
+        }
+        .pic-wrapper img {
+            width: 200px;
+            height: 150px;
+            display: block;
+        }
+        .caption-box {
+            background-color: #4169E1;
+            color: white;
+            font-family: 'Times New Roman'; 
+            font-size: 11px;
+            text-align: center;
+            padding: 7px;
+            width: 190px; 
+        }
+
+        .text-body {
+            text-align: justify;
+            font-size: 13.5px;
+            line-height: 1.4;
+            padding-left: 5px; 
+            padding-right: 10px;
+        }
+        .text-body p { margin-top: 0; margin-bottom: 15px; }
+
+        .footer-line {
+            background-color: #4169E1;
+            color: #000033;
+            text-align: right;
+            padding: 4px 10px;
+            font-family: 'Times New Roman';
+            font-size: 12px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <table class="main-table">
+        <!-- Baris 1: Header -->
+        <tr>
+            <td class="logo-area">
+                <img src="logo_zoo.png" width="100" alt="Logo">
+            </td>
+            <td class="banner-yellow">
+                Having trouble putting your little gorilla to bed
+            </td>
+            <td class="banner-lion">
+                <img src="lion.png" alt="Lion">
+            </td>
+        </tr>
+
+        <tr>
+            <td class="sidebar" rowspan="2">
+                <ul class="nav-list">
+                    <li><a href="#">Lions</a></li>
+                    <li><a href="#">Armadillos</a></li>
+                    <li><a href="#">Hyenas</a></li>
+                    <li><a href="#">Elephants</a></li>
+                    <li><a href="#">Giraffes</a></li>
+                    <li><a href="#">Gorillas</a></li>
+                </ul>
+            </td>
+            <td colspan="2" class="content-area">
+                <div class="title-blue">The Truth About Elephants</div>
+                
+                <div class="pic-wrapper">
+                    <img src="elephant.png" alt="Elephant">
+                    <div class="caption-box">
+                        A baby elephant hang out with it's mom, aunts and great aunts, and maybe even it's grandmother
+                    </div>
+                </div>
+
+                <div class="text-body">
+                    <p>it's hard to tell what goes through a baby elephant's mind when its mom is trying to put it to sleep. Do you think baby elephants wake up in the middle of the night and cry? Do their moms and dads take turns getting up with them to rock them back to sleep? How do you rock an elephant, anyway?</p>
+                    
+                    <p>And what about gorillas? Today in the paper there's a story about a new gorilla that was just born in Franklin Park. Its mom is holding on to it just like any proud human mom. And I have to wonder if they go through as much trauma as that human mom when it comes to sleep, and food, and diapers, and running into the street.</p>
+                    
+                    <p>Why is it so easy for them? Are they better parents? Do they just not worry about every little detail? I’ve never known a gorilla to read and study carefully seventeen books on bringing up baby gorillas. And they seem to know just what to do. They never worry about spoiling their little gorilla babies. They never worry about not having enough time with them. Now, don’t get me wrong, I’d rather be human than a gorilla any day. Just imagine having to sit in a zoo. Forget discrete nursing… (Did you figure out yet that while gorillas were on my mind, I could only find a picture of the elephant?)</p>
+                </div>
+            </td>
+        </tr>
+        
+        <tr>
+            <td colspan="2" class="footer-line" style="vertical-align: bottom;">
+                Copyright &copy; 2002 by Northampton Zoological Society, Inc.
+            </td>
+        </tr>
+    </table>
+
+</body>
+</html>

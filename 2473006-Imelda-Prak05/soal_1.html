@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+  table {
+    margin: 50px;
+    border-collapse: collapse;
+  }
+
+  .frame-link {
+    display: inline-block;
+    position: relative;
+
+    padding: 40px; 
+    text-decoration: none;
+    transition: all 0.3s ease;
+
+    background:
+      linear-gradient(to right, #FF0000 5px, transparent 5px) 0 0,
+      linear-gradient(to bottom, #FF0000 5px, transparent 5px) 0 0,
+      linear-gradient(to left, #FF0000 5px, transparent 5px) 100% 0,
+      linear-gradient(to bottom, #FF0000 5px, transparent 5px) 100% 0,
+      linear-gradient(to right, #FF0000 5px, transparent 5px) 0 100%,
+      linear-gradient(to top, #FF0000 5px, transparent 5px) 0 100%,
+      linear-gradient(to left, #FF0000 5px, transparent 5px) 100% 100%,
+      linear-gradient(to top, #FF0000 5px, transparent 5px) 100% 100%;
+    
+    background-repeat: no-repeat;
+    /* Panjang garis sudut */
+    background-size: 30px 30px; 
+  }
+
+
+  .frame-link:hover {
+    background:
+      linear-gradient(to right, #FF00FF 5px, transparent 5px) 0 0,
+      linear-gradient(to bottom, #FF00FF 5px, transparent 5px) 0 0,
+      linear-gradient(to left, #FF00FF 5px, transparent 5px) 100% 0,
+      linear-gradient(to bottom, #FF00FF 5px, transparent 5px) 100% 0,
+      linear-gradient(to right, #FF00FF 5px, transparent 5px) 0 100%,
+      linear-gradient(to top, #FF00FF 5px, transparent 5px) 0 100%,
+      linear-gradient(to left, #FF00FF 5px, transparent 5px) 100% 100%,
+      linear-gradient(to top, #FF00FF 5px, transparent 5px) 100% 100%;
+    background-repeat: no-repeat;
+    background-size: 30px 30px;
+  }
+
+
+  .frame-link img {
+    display: block;
+    width: 150px;
+    height: auto;
+  }
+</style>
+</head>
+<body>
+
+  <table>
+    <tr>
+      <td>
+        <a href="#" class="frame-link">
+          <img src="star.jpg" alt="Star Icon">
+        </a>
+      </td>
+    </tr>
+  </table>
+
+</body>
+</html>

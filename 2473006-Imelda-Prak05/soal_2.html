@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+
+  .canvas {
+    position: relative;
+    width: 500px;
+    height: 250px;
+    margin: 50px auto;
+  }
+
+  .canvas img {
+    position: absolute;
+    width: 150px; 
+    height: auto;
+    padding: 10px; 
+    box-sizing: border-box;
+  }
+
+
+  .purple {
+    left: 80px; 
+    z-index: 5;  
+  }
+
+  .red-left-full {
+    left: 0;
+    z-index: 1; 
+  }
+
+  .red-left-half {
+    left: 0;
+    z-index: 10;
+  }
+
+  .red-right-full {
+    left: 160px; 
+    z-index: 2; 
+  }
+
+  .red-right-half {
+    left: 160px;
+    z-index: 11;
+  }
+</style>
+</head>
+<body>
+
+  <div class="canvas">
+    <img src="circle-purple.png" class="purple">
+
+    <img src="circle-red.png" class="red-left-full">
+    <img src="circle-red-half.png" class="red-left-half">
+
+    <img src="circle-red.png" class="red-right-full">
+    <img src="circle-red-half.png" class="red-right-half">
+  </div>
+
+</body>
+</html>

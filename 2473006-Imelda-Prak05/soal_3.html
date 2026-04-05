@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <style>
+        /* Container utama */
+        .container {
+            width: 780px; 
+            margin: 10px auto;
+            font-family: Arial, sans-serif;
+        }
+
+        /* 1. Header Merah - Jarak bawah dibuat sangat tipis (5px) */
+        .header {
+            background-color: red;
+            height: 90px;
+            width: 100%;
+            margin-bottom: 5px; 
+        }
+
+        /* 2. Sidebar Biru */
+        .sidebar {
+            background-color: blue;
+            width: 190px;
+            height: 400px;
+            float: left;
+        }
+
+        /* 3. Main Content Hijau - Jarak kiri dibuat sangat tipis (5px) */
+        .main-content {
+            background-color: green;
+            width: 585px; 
+            min-height: 500px;
+            float: left;
+            margin-left: 5px; 
+            padding: 15px;
+            box-sizing: border-box;
+            color: black;
+            font-size: 15px;
+            line-height: 1.4;
+        }
+
+        /* 4. Kotak Kuning (Floating Right) */
+        .yellow-box {
+            background-color: yellow;
+            width: 180px;
+            height: 180px;
+            float: right;
+            margin-left: 10px;
+            margin-bottom: 5px;
+        }
+
+        /* Paragraf Atas: Menjorok dan 6 baris */
+        .p-atas {
+            text-indent: 50px;
+            margin: 0;
+            text-align: justify;
+        }
+
+        /* Paragraf Bawah: 8 kata sebaris, total 8 baris */
+        .p-bawah {
+            margin-top: 35px; /* Jarak agar teks turun di bawah kotak kuning */
+            text-align: justify;
+            word-spacing: 2px; /* Mengatur kerapatan kata agar pas 8 per baris */
+        }
+
+        /* Clearfix agar container tidak kempis */
+        .clearfix::after {
+            content: "";
+            clear: both;
+            display: table;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container clearfix">
+    <div class="header"></div>
+
+    <div class="sidebar"></div>
+
+    <div class="main-content">
+        <div class="yellow-box"></div>
+        
+        <p class="p-atas">
+            content content content content content content content content content 
+            content content content content content content content content content 
+            content content content content content content content content content 
+            content 
+        </p>
+
+        <p class="p-bawah">
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+            content content content content content content content content
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
