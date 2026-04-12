@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Piramida Pilar Vertikal</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; text-align: center; }
+
+        .input-area { 
+            border: 1px solid #ccc; 
+            padding: 10px; 
+            display: inline-block; 
+            box-shadow: 2px 2px 5px #888;
+            margin-bottom: 20px;
+            background-color: #f9f9f9;
+        }
+
+        #main-box {
+            width: 800px;  
+            height: 600px;
+            border: 2px solid #555;
+            margin: 0 auto;
+            background-color: #fff;
+            display: flex;
+            justify-content: center; 
+            align-items: center;     
+            box-shadow: 5px 5px 15px #888;
+            overflow: auto; 
+        }
+
+        table { 
+            border-collapse: separate; 
+            border-spacing: 1px;
+        }
+
+        td { 
+            width: 35px;  
+            height: 50px; 
+            box-sizing: border-box;
+        }
+
+        .balok { 
+            background-color: #ffaa00; 
+            border: 1px solid #fff; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="input-area">
+        Tinggi Piramida: <input type="number" id="tinggi" value="5" style="width: 150px;">
+        <br><br>
+        <button onclick="prosesPiramida()">proses</button>
+    </div>
+
+    <div id="main-box"></div>
+
+    <script>
+        function prosesPiramida() {
+            const n = parseInt(document.getElementById('tinggi').value);
+            const box = document.getElementById('main-box');
+
+            if (isNaN(n) || n <= 0) {
+                alert("Silakan masukkan angka!");
+                return;
+            }
+
+            let tabelHtml = "<table>";
+            
+            for (let i = 1; i <= n; i++) {
+                tabelHtml += "<tr>";
+                
+                let spasiKosong = n - i;
+                let jumlahBalok = (2 * i) - 1;
+
+                for (let s = 0; s < spasiKosong; s++) {
+                    tabelHtml += "<td></td>";
+                }
+                
+                for (let k = 0; k < jumlahBalok; k++) {
+                    tabelHtml += "<td class='balok'></td>";
+                }
+
+                tabelHtml += "</tr>";
+            }
+            
+            tabelHtml += "</table>";
+            box.innerHTML = tabelHtml;
+        }
+
+        prosesPiramida();
+    </script>
+
+</body>
+</html>

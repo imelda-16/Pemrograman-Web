@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Multiplication Table</title>
+    <style>
+        table {
+
+            border-collapse: separate; 
+ 
+            border-spacing: 3px; 
+
+            border: 1px solid black; 
+            
+            margin: 20px;
+            font-family: "Times New Roman", serif;
+            background-color: white;
+            box-shadow: 2px 2px 8px rgba(0,0,0,0.1);
+        }
+
+        td {
+            border: 1px solid black; 
+            padding: 8px 12px;
+            text-align: center;
+            font-size: 22px;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    let input;
+    
+    while (true) {
+        input = prompt("A number?");
+        if (input !== "" && input !== null && !isNaN(input)) {
+            input = parseInt(input);
+            break;
+        }
+    }
+
+    document.write("<table>");
+    
+    for (let i = 1; i <= input; i++) {
+        document.write("<tr>");
+        document.write("<td>" + i + "</td>");
+        document.write("<td>x</td>");
+        document.write("<td>" + input + "</td>");
+        document.write("<td>=</td>");
+        document.write("<td>" + (i * input) + "</td>");
+        document.write("</tr>");
+    }
+    
+    document.write("</table>");
+</script>
+
+</body>
+</html>

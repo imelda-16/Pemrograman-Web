@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Number Conversion - Manual Calculation</title>
+    <style>
+        body { font-family: Arial, sans-serif; display: flex; justify-content: center; padding: 50px; background-color: #f4f4f4; }
+
+        .converter-box {
+            border: 2px solid #ccc;
+            padding: 10px;
+            width: 400px;
+            background-color: white;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        table { width: 100%; border-collapse: collapse; }
+        td { border: 1px solid #ddd; padding: 8px; }
+
+        .label-blue { color: blue; font-weight: bold; width: 80px; }
+        input[type="text"] { width: 95%; border: 1px solid #ccc; padding: 3px; }
+        select { width: 100%; padding: 3px; }
+
+        .button-area { text-align: center; padding: 10px 0; }
+        button { 
+            padding: 5px 15px; 
+            margin: 0 5px; 
+            cursor: pointer; 
+            font-weight: bold;
+            border: 1px solid #999;
+        }
+        .btn-proses { color: blue; background-color: #eef; }
+    </style>
+</head>
+<body>
+
+<div class="converter-box">
+    <table>
+        <tr>
+            <td class="label-blue">Input :</td>
+            <td><input type="text" id="userInput"></td>
+        </tr>
+        <tr>
+            <td class="label-blue">Output :</td>
+            <td><input type="text" id="resultOutput" readonly></td>
+        </tr>
+        <tr>
+            <td colspan="2">
+                <select id="convertType">
+                    <option value="dec-bin">decimal-biner</option>
+                    <option value="bin-dec">biner-decimal</option>
+                </select>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" class="button-area">
+                <button class="btn-proses" onclick="proses()">PROSES</button>
+                <button onclick="reset()">RESET</button>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function proses() {
+        const input = document.getElementById("userInput").value;
+        const type = document.getElementById("convertType").value;
+        const outputField = document.getElementById("resultOutput");
+        
+        if (input === "") {
+            alert("Silakan isi input terlebih dahulu!");
+            return;
+        }
+
+        if (type === "dec-bin") {
+            let num = parseInt(input);
+            if (isNaN(num) || num < 0 || num > 255) {
+                alert("Input decimal harus angka 0 s/d 255!");
+                return;
+            }
+            outputField.value = decimalToBinaryManual(num);
+        } else {
+            if (!/^[01]+$/.test(input) || input.length > 8) {
+                alert("Input biner hanya boleh 0 atau 1, maksimal 8 digit!");
+                return;
+            }
+            outputField.value = binaryToDecimalManual(input);
+        }
+    }
+
+    function decimalToBinaryManual(dec) {
+        if (dec === 0) return "00000000";
+        let biner = "";
+        let temp = dec;
+        
+        while (temp > 0) {
+            biner = (temp % 2) + biner; // Sisa bagi disimpan
+            temp = Math.floor(temp / 2); // Bagi dua terus
+        }
+
+        while (biner.length < 8) {
+            biner = "0" + biner;
+        }
+        return biner;
+    }
+
+    function binaryToDecimalManual(bin) {
+        let decimal = 0;
+        let pangkat = 0;
+
+        for (let i = bin.length - 1; i >= 0; i--) {
+            if (bin[i] === "1") {
+                // Rumus: 1 * 2^pangkat
+                decimal += Math.pow(2, pangkat);
+            }
+            pangkat++;
+        }
+        return decimal;
+    }
+
+    function reset() {
+        document.getElementById("userInput").value = "";
+        document.getElementById("resultOutput").value = "";
+        document.getElementById("convertType").selectedIndex = 0;
+    }
+</script>
+
+</body>
+</html>

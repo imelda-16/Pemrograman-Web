@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <style>
+
+        body { font-family: 'Times New Roman', Times, serif; padding: 20px; }
+
+        .container { 
+            border: 1px solid #ccc; 
+            padding: 10px 15px; 
+            width: 320px; 
+            box-shadow: 5px 5px 15px #888; 
+            background-color: white;
+        }
+
+        .input-table {
+            border: none;
+            width: 100%;
+            margin-bottom: 5px;
+            border-spacing: 0; 
+        }
+        .input-table td {
+            border: none;
+            text-align: left;
+            font-size: 18px;
+            padding: 2px 0; 
+            height: auto;
+        }
+
+        .col-label { width: 115px; }
+        .col-separator { width: 10px; }
+
+        button { 
+            margin: 5px 0 10px 0; 
+            padding: 1px 10px;
+            font-size: 14px;
+        }
+
+        .result-table { 
+            border-collapse: collapse; 
+            width: 100%; 
+        }
+
+        .result-table td { 
+            border: 1px solid #000; 
+            width: 20%; 
+            height: 35px; 
+            text-align: center; 
+            font-size: 32px; 
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <table class="input-table">
+        <tr>
+            <td class="col-label">Angka Pertama</td>
+            <td class="col-separator">:</td>
+            <td><input type="text" id="angka1" style="width: 120px;"></td>
+        </tr>
+        <tr>
+            <td class="col-label">Angka Kedua</td>
+            <td class="col-separator">:</td>
+            <td><input type="text" id="angka2" style="width: 120px;"></td>
+        </tr>
+    </table>
+    
+    <button onclick="count()">Count</button>
+
+    <table class="result-table">
+        <tr>
+            <td id="tampil1_tambah">&nbsp;</td>
+            <td>+</td>
+            <td id="tampil2_tambah">&nbsp;</td>
+            <td>=</td>
+            <td id="hasil_tambah">&nbsp;</td>
+        </tr>
+        <tr>
+            <td id="tampil1_kurang">&nbsp;</td>
+            <td>-</td>
+            <td id="tampil2_kurang">&nbsp;</td>
+            <td>=</td>
+            <td id="hasil_kurang">&nbsp;</td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function count() {
+        let val1 = document.getElementById("angka1").value;
+        let val2 = document.getElementById("angka2").value;
+
+        if (isNaN(val1) && isNaN(val2)) {
+            alert("angka pertama dan kedua harus angka.");
+            return;
+        } else if (isNaN(val1)) {
+            alert("angka pertama bukan angka.");
+            return;
+        } else if (isNaN(val2)) {
+            alert("angka kedua harus angka.");
+            return;
+        }
+
+        let n1 = parseInt(val1);
+        let n2 = parseInt(val2);
+
+        let tambah = n1 + n2;
+        let kurang = n1 - n2;
+
+        document.getElementById("tampil1_tambah").innerHTML = n1;
+        document.getElementById("tampil2_tambah").innerHTML = n2;
+        document.getElementById("hasil_tambah").innerHTML = tambah;
+
+        document.getElementById("tampil1_kurang").innerHTML = n1;
+        document.getElementById("tampil2_kurang").innerHTML = n2;
+        document.getElementById("hasil_kurang").innerHTML = kurang;
+    }
+</script>
+
+</body>
+</html>
