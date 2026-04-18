@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Character Counter</title>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            background-color: #f4f4f4; 
+            display: flex; 
+            justify-content: center; 
+            padding-top: 50px; 
+        }
+        
+        .card {
+            background: white;
+            border: 1px solid #ccc;
+            padding: 10px; 
+            width: 500px;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .form-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        .form-table td {
+            vertical-align: top;
+            padding: 5px 0;
+        }
+
+        .label-col {
+            width: 70px; 
+            font-weight: normal;
+        }
+
+        .sep-col {
+            width: 10px; 
+            text-align: left;
+        }
+
+        input[type="text"] {
+            width: 98%;
+            border: 1px solid #ccc;
+            padding: 3px;
+        }
+
+        textarea { 
+            width: 98%;
+            height: 150px; 
+            border: 1px solid #ccc;
+            padding: 5px;
+            font-size: 18px;
+            font-family: 'Times New Roman', Times, serif;
+            font-weight: normal; 
+            overflow-y: scroll; 
+            resize: none; 
+        }
+
+        .counter-container {
+            text-align: right;
+            margin-top: 5px;
+            padding-right: 10px;
+        }
+
+        #txt2 {
+            width: 70px;
+            text-align: center;
+            border: 1px solid #ccc;
+            padding: 2px;
+            font-size: 14px;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <table class="form-table">
+        <tr>
+            <td class="label-col">Judul</td>
+            <td class="sep-col">:</td>
+            <td><input type="text"></td>
+        </tr>
+        <tr>
+            <td class="label-col">Deskripsi</td>
+            <td class="sep-col">:</td>
+            <td>
+                <textarea id="desc" 
+                          onkeyup="call_onKeyPress(this)" 
+                          onkeydown="call_onKeyPress(this)"></textarea>
+                
+                <div class="counter-container">
+                    <input type="text" id="txt2" value="0/256" readonly>
+                </div>
+            </td>
+        </tr>
+    </table>
+</div>
+
+<script>
+    function call_onKeyPress(ob) {
+        let obval = ob.value;
+        let maxLen = 256;
+
+        if (obval.length > maxLen) {
+            ob.value = obval.substr(0, maxLen);
+            obval = ob.value;
+        }
+
+        document.getElementById("txt2").value = obval.length + "/256";
+    }
+</script>
+
+</body>
+</html>

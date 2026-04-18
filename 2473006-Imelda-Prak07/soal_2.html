@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Highlighted Table</title>
+    <style>
+        table { border-collapse: collapse; width: 400px; font-family: 'Times New Roman', Times, serif; }
+        th { background-color: #A9B799; color: black; padding: 10px; border: 1px solid #ffffff; text-align: left; font-weight: normal; }
+        td { border: 1px solid #ffffff; padding: 8px; text-align: left; }
+
+        .blue { background-color: #ADC9FF; }
+        .orange { background-color: #FFD1B3; }
+
+        .c3 { background-color: #CCFFAA !important; }
+    </style>
+</head>
+<body>
+
+<table>
+    <thead>
+        <tr>
+            <th>Position</th>
+            <th>Programming Language</th>
+            <th>Ratings</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr id="row1" class="blue" onmouseover="highlight('row1')" onmouseout="unhighlight('row1', 'blue')">
+            <td>1</td>
+            <td>C</td>
+            <td>18.058%</td>
+        </tr>
+        <tr id="row2" class="orange" onmouseover="highlight('row2')" onmouseout="unhighlight('row2', 'orange')">
+            <td>2</td>
+            <td>Java</td>
+            <td>18.051%</td>
+        </tr>
+        <tr id="row3" class="blue" onmouseover="highlight('row3')" onmouseout="unhighlight('row3', 'blue')">
+            <td>3</td>
+            <td>C++</td>
+            <td>9.707%</td>
+        </tr>
+        <tr id="row4" class="orange" onmouseover="highlight('row4')" onmouseout="unhighlight('row4', 'orange')">
+            <td>4</td>
+            <td>PHP</td>
+            <td>9.662%</td>
+        </tr>
+        <tr id="row5" class="blue" onmouseover="highlight('row5')" onmouseout="unhighlight('row5', 'blue')">
+            <td>5</td>
+            <td>(Visual) Basic</td>
+            <td>6.392%</td>
+        </tr>
+    </tbody>
+</table>
+
+<script>
+function highlight(id) {
+    document.getElementById(id).className = "c3";
+}
+
+function unhighlight(id, oldClass) {
+    document.getElementById(id).className = oldClass;
+}
+</script>
+
+</body>
+</html>
