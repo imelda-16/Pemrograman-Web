@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2473006-Imelda</title>
+    <style>
+        .box-container {
+            border: 1px solid #ccc;
+            padding: 8px;
+            width: 435px;
+            margin: 20px auto;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            overflow: hidden; /* Agar float di dalamnya terbungkus */
+            font-family: Arial, sans-serif;
+        }
+
+        div.kotak { 
+            width: 40px; 
+            height: 40px; 
+            margin: 5px; 
+            float: left;
+            border: 2px blue solid; 
+            text-align: center; 
+            cursor: pointer;
+        }
+
+        button {
+            margin-bottom: 2px;
+            padding: 5px 15px;
+            cursor: pointer;
+        }
+
+        span { color: red; }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+    <div class="box-container">
+        <button id="btnChange">Change colors</button>
+        <br>
+        <!-- Daftar kotak -->
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+        <div class="kotak"></div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            $(".kotak").click(function() {
+                // Sesuai tips: Set css menjadi merah dan set attr id (misal id="merah")
+                $(this).css("background-color", "red");
+                $(this).attr("id", "stop-disini");
+            });
+
+            $("#btnChange").click(function() {
+                // Sesuai tips: Lakukan looping element menggunakan each
+                $(".kotak").each(function(index, domEle) {
+
+                    if ($(domEle).attr("id") === "stop-disini") {
+
+                        return false; 
+                    } else {  
+                        $(domEle).css("background-color", "yellow");
+                    }
+                });
+            });
+
+        });
+    </script>
+
+</body>
+</html>

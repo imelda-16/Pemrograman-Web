@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2473006-Imelda</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .table-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: fit-content;
+            margin: 50px auto;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+        }
+
+        hr {
+            border: 0;
+            border-top: 1px solid #000;
+            margin: 5px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="table-container">
+        <table border="1" cellpadding="0" cellspacing="0">
+            <tr>
+                <td width="50" align="center">
+                    <input class="header" type="checkbox"/><br/>
+                    <hr/>
+                    <input class="body" type="checkbox"/><br/>
+                    <input class="body" type="checkbox"/><br/>
+                    <input class="body" type="checkbox"/><br/>
+                    <input class="body" type="checkbox"/><br/>
+                    <input class="body" type="checkbox"/><br/>
+                </td>
+            </tr>
+        </table>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $(".header").click(function() {
+                var flag = $(this).prop("checked"); 
+
+                if (flag) {
+                    $("input.body").attr("checked", "checked");
+                    $("input.body").prop("checked", true);
+                } else {
+                    $("input.body").removeAttr("checked");
+                    $("input.body").prop("checked", false);
+                }
+                console.log("Jumlah terpilih: " + $("input.body:checked").length);
+            });
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2473006-Imelda</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+
+        .menu-container {
+            border: 1px solid #ccc;
+            padding: 10px;
+            width: 450px;
+            height: 110px;
+            margin: 5px auto;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            font-family: Arial, sans-serif;
+        }
+
+        .main-menu {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            display: flex;
+        }
+
+        .item {
+            position: relative;
+            margin-right: 10px;
+            width: 150px;
+        }
+
+        .menu-header {
+            background-color: #ff3399;
+            color: white;
+            padding: 6x 12px;
+            cursor: pointer;
+            display: block;
+            text-decoration: underline white;
+        }
+
+        .sub-menu {
+            list-style: none;
+            padding: 1px;
+            margin: 0;
+            border: 2px solid #ff3399;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            width: 100%;
+            background: white;
+            box-sizing: border-box;
+        }
+
+        .sub-menu li a {
+            text-decoration: underline;
+            color: black;
+            display: block;
+            padding: 2px 0;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="menu-container">
+        <ol class="main-menu">
+            <!-- Menu jQuery -->
+            <li class="item">
+                <a href="#" class="menu-header">jQuery</a>
+                <ol class="sub-menu">
+                    <li><a href="#">Download</a></li>
+                    <li><a href="#">Documentation</a></li>
+                    <li><a href="#">Blog</a></li>
+                </ol>
+            </li>
+
+            <li class="item">
+                <a href="#" class="menu-header">Community</a>
+                <ol class="sub-menu">
+                    <li><a href="#">Mailing List</a></li>
+                    <li><a href="#">Tutorials</a></li>
+                    <li><a href="#">Demos</a></li>
+                    <li><a href="#">Plugins</a></li>
+                </ol>
+            </li>
+
+            <li class="item">
+                <a href="#" class="menu-header">Development</a>
+                <ol class="sub-menu">
+                    <li><a href="#">Source Code</a></li>
+                    <li><a href="#">Bug Tracking</a></li>
+                    <li><a href="#">Recent Changes</a></li>
+                </ol>
+            </li>
+        </ol>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            $("li.item ol").hide();
+
+            $("li.item").hover(
+                function() {
+                    $(this).find("ol").show();
+                }, 
+                function() {
+                    $(this).find("ol").hide();
+                }
+            );
+        });
+    </script>
+
+</body>
+</html>

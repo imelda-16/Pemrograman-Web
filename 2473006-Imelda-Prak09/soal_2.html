@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>2473006-Imelda</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+
+        .main-container {
+            border: 1px solid #ccc;
+            padding: 7px;
+            width: 334px;
+            margin: 20px auto;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            font-family: Arial, sans-serif;
+            min-height: 120px;
+        }
+
+        .input-group {
+            margin-bottom: 15px;
+        }
+
+        input[type="text"] {
+            width: 200px;
+            padding: 3px;
+        }
+
+        button {
+            padding: 3px 10px;
+            cursor: pointer;
+        }
+
+        #name-list div {
+            margin-bottom: 5px;
+            font-size: 16px;
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .highlight {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <div class="input-group">
+            <input type="text" id="nameInput" placeholder="Masukkan nama...">
+            <button id="btnAdd">Add</button>
+            <button id="btnSearch">Search</button>
+        </div>
+
+        <div id="name-list">
+            <div>John Resig</div>
+            <div>George Martin</div>
+            <div>Malcom John Sinclair</div>
+            <div>J. Ohn</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+
+            $("#btnAdd").click(function() {
+                var inputVal = $("#nameInput").val();
+                
+                if(inputVal !== "") {
+                    $("<div>" + inputVal + "</div>").appendTo("#name-list");
+                    $("#nameInput").val("");
+                }
+            });
+
+            $("#btnSearch").click(function() {
+                var searchVal = $("#nameInput").val();
+
+                $("#name-list div").removeClass("highlight");
+
+                if(searchVal !== "") {
+                    $("#name-list div:contains('" + searchVal + "')").addClass("highlight");
+                }
+            });
+
+            $("#nameInput").keypress(function(e) {
+                if(e.which == 13) {
+                    $("#btnAdd").click();
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>

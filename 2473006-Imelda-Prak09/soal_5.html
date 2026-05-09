@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>473006-Imelda</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .main-container {
+            border: 1px solid #ccc;
+            padding: 20px;
+            width: 350px;
+            margin: 50px auto;
+            box-shadow: 5px 5px 15px rgba(0,0,0,0.2);
+            font-family: Arial, sans-serif;
+            background-color: #f9f9f9;
+        }
+
+        input[type="text"] {
+            width: 80%;
+            padding: 5px;
+            margin-bottom: 5px;
+            display: block;
+        }
+
+        .company-list div {
+            margin-bottom: 3px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        /* Class untuk mengubah warna menjadi merah */
+        .highlight-red {
+            color: red !important;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-container">
+        <input type="text" id="findInput" placeholder="">
+
+        <div class="company-list">
+            <div>Sun Microsystem</div>
+            <div>Apache Software Foundation</div>
+            <div>Oracle Coorporation</div>
+            <div>International Bussiness Machines</div>
+            <div>Microsoft Coorporation</div>
+            <div>Apple Inc</div>
+            <div>Sap Ag</div>
+            <div>Accenture</div>
+            <div>Computer Sciences Coorporation</div>
+            <div>Google</div>
+            <div>Softbank</div>
+            <div>Yahoo</div>
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Event 'keyup' akan mendeteksi setiap kali user mengetik huruf
+            $("#findInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+
+                // Reset warna semua teks dulu ke default
+                $(".company-list div").removeClass("highlight-red");
+
+                // Jika input tidak kosong, lakukan pencarian
+                if (value !== "") {
+                    // Filter setiap div yang mengandung teks dari input
+                    $(".company-list div").each(function() {
+                        var currentText = $(this).text().toLowerCase();
+                        
+                        // Jika teks perusahaan mengandung kata di TextField
+                        if (currentText.indexOf(value) > -1) {
+                            $(this).addClass("highlight-red");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+
+</body>
+</html>
