@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2473006-Imelda</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            padding: 20px; 
+        }
+        .input-box { 
+            border: 1px solid #000; 
+            padding: 10px; 
+            width: 400px; 
+            margin-bottom: 20px; 
+        }
+        .input-box input { 
+            width: 95%; 
+            margin-bottom: 5px; 
+        }
+ 
+        .portal-container { 
+            border: 1px solid #999; 
+            width: 700px; 
+            display: none; 
+        }
+        
+        .header-portal { 
+            text-align: center; 
+            border-bottom: 1px solid #999; 
+            padding: 15px; 
+        }
+
+        .header-portal h2 { 
+            color: blue; 
+            text-decoration: underline; 
+            margin: 0 0 5px 0;
+        }
+        .header-portal a {
+            color: blue;
+        }
+
+        .content-area { 
+            padding: 10px; 
+        }
+        
+        .article { 
+            margin-bottom: 30px; 
+        }
+
+        .article-title { 
+            font-weight: bold; 
+            color: blue; 
+            text-decoration: underline; 
+            font-size: 1.2em; 
+            display: inline-block;
+            margin-bottom: 5px;
+        }
+        .article-meta { 
+            font-style: italic; 
+            color: #555; 
+            margin-bottom: 10px; 
+        }
+        .article-body { 
+            text-align: justify; 
+            line-height: 1.5; 
+            margin-bottom: 10px; 
+        }
+
+        .article-footer-info {
+            margin-top: 5px;
+        }
+        .article-footer-info a {
+            color: blue;
+        }
+        
+        .footer-portal { 
+            border-top: 1px solid #999; 
+            padding: 10px; 
+            font-size: 0.9em; 
+        }
+    </style>
+</head>
+<body>
+
+    <div class="input-box">
+        <input type="text" id="inputTitle" placeholder="Title"><br>
+        <input type="text" id="inputContent" placeholder="Content"><br>
+        <input type="text" id="inputGenerator" placeholder="Generator"><br>
+        <button id="lookBtn">Look</button>
+    </div>
+
+    <div class="portal-container" id="portal">
+        <div class="header-portal">
+            <h2 id="portalTitle">Portal S1-Sistem Informasi</h2>
+            <div id="portalSubLink">Link Universitas : <a href="#" target="_blank"></a></div>
+        </div>
+
+        <div class="content-area" id="mainContent">
+        </div>
+
+        <div class="footer-portal">
+            <span id="portalFooter">&copy; S1-SI FIT UKM</span>
+        </div>
+    </div>
+
+    <script>
+    $(document).ready(function() {
+
+        const portalData = {
+            "title": "Portal S1-Sistem Informasi",
+            "link": "http://si.itmaranatha.org",
+            "generator": "S1-SI FIT UKM",
+            "items": [
+                {
+                    "title": "BIE02 - Pemrograman Web",
+                    "link": "https://morning.maranatha.edu/course/view.php?id=4245",
+                    "universitas": {"m":"http://www.itmaranatha.org/"},
+                    "description": "Matakuliah ini akan mengenalkan dan mengajarkan mahasiswa tentang dasar-dasar dalam pemrograman web. Di sini mahasiswa akan mempelajari penulisan tag-tag HTML sebagai pembentuk dasar dari suatu halaman web, mahasiswa juga akan mempelajari CSS sebagai pelengkap fungsionalitas dari HTML.<br/>Selain itu mahasiswa juga akan mempelajari pemrograman web di sisi klien (client side scripting) dengan menggunakan Java Script. Dan sebagai pengenalan teknologi baru, mahasiswa juga akan mempelajari sekilas mengenai teknologi JQuery dan teknologi JSON.",
+                    "published": "01-January-2023",
+                    "author": "Dosen S1-SI",
+                    "tags": "S1-Sistem Informasi, Pemrograman Web"
+                },
+                {
+                    "title": "IS407 - Basis Data 2",
+                    "link": "http://si.itmaranatha.org/index.php/is407-basis-data-2",
+                    "universitas": {"m":"http://www.itmaranatha.org/"},
+                    "description": "Mata kuliah ini mengajarkan kepada mahasiswa bahasa pemrograman SQL yang meliputi : Perintah SQL untuk mengambil data dari tabel dan mengurutkan data, fungsi-fungsi yang terdapat pada oracle seperti fungsi tanggal dll, Join table, Operasi DDL, DML, Constraint, Subquery, View, Index dan PL/SQL.",
+                    "published": "01-January-2023",
+                    "author": "Dosen S1-SI",
+                    "tags": "S1-Sistem Informasi, Basis Data 2"
+                }
+            ]
+        };
+
+        $("#lookBtn").click(function() {
+            let container = $("#mainContent");
+            container.empty(); 
+
+            $("#portalTitle").text(portalData.title);
+            $("#portalSubLink").html(`Link Universitas : <a href="${portalData.link}" target="_blank">${portalData.link}</a>`);
+            $("#portalFooter").html("&copy; " + portalData.generator);
+
+            let cariTitle = $("#inputTitle").val().toLowerCase().trim();
+            let cariContent = $("#inputContent").val().toLowerCase().trim();
+            let cariGenerator = $("#inputGenerator").val().toLowerCase().trim();
+
+            let dataDitemukan = false;
+
+            $.each(portalData.items, function(i, item) {
+                
+                let titleData = item.title.toLowerCase();
+                let contentData = item.description.toLowerCase();
+                let generatorData = item.author.toLowerCase();
+
+                let matchTitle = (cariTitle === "" || titleData.includes(cariTitle));
+                let matchContent = (cariContent === "" || contentData.includes(cariContent));
+                let matchGenerator = (cariGenerator === "" || generatorData.includes(cariGenerator));
+
+                if (matchTitle && matchContent && matchGenerator) {
+                    dataDitemukan = true;
+
+                    let html = `
+                        <div class="article">
+                            <a href="${item.link}" target="_blank" class="article-title">${item.title}</a>
+                            
+                            <div class="article-meta">By : ${item.author} / ${item.published}</div>
+                            
+                            <div class="article-body">${item.description}</div>
+                            
+                            <div class="article-footer-info">Universitas : <a href="${item.universitas.m}" target="_blank">Click Here</a></div>
+                            <div class="article-footer-info">Tag(s) : ${item.tags}</div>
+                        </div>
+                    `;
+                    container.append(html);
+                }
+            });
+
+            if (!dataDitemukan) {
+                container.append("<p style='color: red; font-style: italic;'>Data tidak ditemukan.</p>");
+            }
+
+            $("#portal").fadeIn(); 
+        });
+    });
+    </script>
+
+</body>
+</html>

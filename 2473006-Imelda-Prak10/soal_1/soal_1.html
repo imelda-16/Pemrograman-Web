@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>2473006-Imelda</title>
+    <script src="jquery-4.0.0.min.js"></script>
+    <style>
+        body { 
+            font-family: 'Times New Roman', Times, serif; 
+            padding: 20px; 
+        }
+
+        .main-container { 
+            border: 1px solid #000; 
+            padding: 10px; 
+            width: 430px; 
+            min-height: 300px;
+        }
+
+        .filter-box { 
+            border: 1px solid #999; 
+            padding: 15px; 
+            width: 250px; 
+            margin-bottom: 20px; 
+        }
+
+        table { 
+            width: 100%; 
+            border-collapse: collapse; 
+        }
+
+        th { 
+            background-color: black; 
+            color: white; 
+            padding: 8px; 
+            text-align: left;
+            border: 1px solid #000;
+        }
+
+        td { 
+            padding: 8px; 
+            border: 1px solid #000; 
+        }
+        .warna-kuning { 
+            background-color: #FFFFCC; 
+        }
+        .warna-hijau { 
+            background-color: #CCFFAA; 
+        }
+    </style>
+</head>
+<body>
+
+<div class="main-container">
+    <p><strong>Selamat! Berikut adalah Daftar Mahasiswa yang mendapat Nilai A Pemrograman Web SI Tahun Ajaran 2023/2024</strong></p>
+
+    <div class="filter-box">
+        <input type="radio" name="kelas" value="all" checked> All<br>
+        <input type="radio" name="kelas" value="A"> Kelas A<br>
+        <input type="radio" name="kelas" value="B"> Kelas B<br>
+        <button id="searchBtn" style="margin-top: 10px;">Search</button>
+    </div>
+
+    <table id="tabelMahasiswa">
+        <thead>
+            <tr>
+                <th>NRP</th>
+                <th>NAMA</th>
+                <th>KELAS</th>
+                <th>NILAI AKHIR</th>
+            </tr>
+        </thead>
+        <tbody>
+        </tbody>
+    </table>
+</div>
+
+<script>
+$(document).ready(function() {
+
+    $("#searchBtn").click(function() {
+
+        let pilihan = $("input[name='kelas']:checked").val();
+        let tbody = $("#tabelMahasiswa tbody");
+        
+        tbody.empty();
+
+        let fileUrl = "nilai.js"; 
+
+        if (pilihan === "A") {
+            fileUrl = "nilaiA.js";
+        } else if (pilihan === "B") {
+            fileUrl = "nilaiB.js";
+        }
+
+        $.getJSON(fileUrl, function(data) {
+            let counter = 0;
+
+            $.each(data.nilai, function(i, item) {
+                
+                let warna = (counter % 2 === 0) ? "warna-kuning" : "warna-hijau";
+                
+                let row = `<tr class="${warna}">
+                    <td>${item.nrp}</td>
+                    <td>${item.nama}</td>
+                    <td style="text-align: center;">${item.kelas}</td>
+                    <td style="text-align: center;">${item.nilaiakhir}</td>
+                </tr>`;
+                
+                tbody.append(row);
+                counter++;
+            });
+        }).fail(function(jqXHR, textStatus, errorThrown) {
+            console.log("Gagal memuat file: " + textStatus + " - " + errorThrown);
+        });
+    });
+});
+</script>
+
+</body>
+</html>
